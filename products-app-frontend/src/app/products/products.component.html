@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class=" panel-heading">Liste des produits</div>
+  <div class="panel-body">
+    <button class="btn btn-primary" (click)="onGetProducts()">Chercher</button>
+  </div>
+    <div class="panel-body">
+      <table class="table table-striped" *ngIf="products; else noComments">
+        <thead>
+          <th>ID</th>
+          <th>Désignation</th>
+          <th>Quantité</th>
+          <th>Prix</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let product of products ">
+          <td>{{product.id}}</td>
+          <td>{{product.designation}}</td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.price}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #noComments>
+      <h4>La liste des produits est vide</h4>
+    </ng-template>
+  </div>
+ </div>
