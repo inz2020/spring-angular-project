@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NewProductComponent } from './new-product/new-product.component';
 import {RouterModule} from "@angular/router";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     NewProductComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,

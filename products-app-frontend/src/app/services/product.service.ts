@@ -6,10 +6,12 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ProductService {
+  public  host:string="http://localhost:8080";
 
   constructor(private httpClient: HttpClient) { }
 
-  public getProducts(){
-    return this.httpClient.get("http://localhost:8080/products");
+  public getProducts(page:number, size:number){
+    return this.httpClient.get(this.host+
+      "/products?page="+page+"&size="+size);
   }
 }

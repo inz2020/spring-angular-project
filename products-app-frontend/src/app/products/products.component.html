@@ -5,7 +5,16 @@
     <button class="btn btn-primary" (click)="onGetProducts()">Chercher</button>
   </div>
     <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+        <div class="form-group">
+          <label>Mot clé</label>
+          <input type="text" name="keyword" ngModel >
+          <button type="submit" class="btn btn-primary" >Chercher</button>
+        </div>
+
+      </form>
       <table class="table table-striped" *ngIf="products; else noComments">
+
         <thead>
           <th>ID</th>
           <th>Désignation</th>
@@ -21,6 +30,12 @@
         </tr>
         </tbody>
       </table>
+      <ul *ngIf="pages" class="nav nav-pills">
+        <li [ngClass]="i==currentPage?'active':''"
+            *ngFor="let p of pages; let i =index">
+          <a  class= "clickable"(click)="onPageProducts(i)">{{i}}</a>
+        </li>
+      </ul>
     </div>
     <ng-template #noComments>
       <h4>La liste des produits est vide</h4>
